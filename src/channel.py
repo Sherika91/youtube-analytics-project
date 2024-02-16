@@ -18,7 +18,7 @@ class Channel:
 
     Attributes
     ----------
-    channel_id : str
+    _channel_id : str
         The id of the YouTube channel.
     channel : dict
         The information about the YouTube channel fetched from the YouTube API.
@@ -63,7 +63,7 @@ class Channel:
         self.title = self.channel['items'][0]['snippet']['title']
         self.description = self.channel['items'][0]['snippet']['description']
         self.url = f"https://www.youtube.com/channel/{self.channel['items'][0]['id']}"
-        self.subscribers = self.channel['items'][0]['statistics']['subscriberCount']
+        self.subscribers = int(self.channel['items'][0]['statistics']['subscriberCount'])
         self.video_count = self.channel['items'][0]['statistics']['videoCount']
         self.view_count = self.channel['items'][0]['statistics']['viewCount']
 
@@ -76,7 +76,6 @@ class Channel:
 
     def to_json(self, filename):
         data = {
-            ''
             'id': self.channel_id,
             'title': self.title,
             'description': self.description,
@@ -88,3 +87,27 @@ class Channel:
 
         with open(filename, 'w', encoding='utf-8') as file:
             file.write(json.dumps(data, indent=2, ensure_ascii=False))
+
+    def __str__(self):
+        return f"{self.title} ({self.url})"
+
+    def __add__(self, other):
+        return self.subscribers + other.subscribers
+
+    def __sub__(self, other):
+        return self.subscribers - other.subscribers
+
+    def __gt__(self, other):
+        return self.subscribers > other.subscribers
+
+    def __ge__(self, other):
+        return self.subscribers >= other.subscribers
+
+    def __lt__(self, other):
+        return self.subscribers < other.subscribers
+
+    def __le__(self, other):
+        return self.subscribers <= other.subscribers
+
+    def __eq__(self, other):
+        return self.subscribers == other.subscribers
