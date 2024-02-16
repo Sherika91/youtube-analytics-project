@@ -4,11 +4,13 @@ import os
 from dotenv import load_dotenv
 from googleapiclient.discovery import build
 
+# Load environment variables from a .env file
 load_dotenv()
 
+# Get the YouTube API key from the environment variables
 api_key = os.getenv("YT_API_KEY")
 
-# создать специальный объект для работы с API
+# Create a YouTube API client
 youtube = build('youtube', 'v3', developerKey=api_key)
 
 
@@ -42,11 +44,12 @@ class Channel:
     Get_service():
         Returns an object for working with the YouTube API.
     To_json():
-
+        Writes the channel information to a JSON file.
     """
 
     @property
     def channel_id(self):
+        """ Returns the channel id. """
         return self._channel_id
 
     def __init__(self, channel_id: str) -> None:
@@ -72,9 +75,18 @@ class Channel:
 
     @classmethod
     def get_service(cls):
+        """ Returns an object for working with the YouTube API. """
         return youtube
 
     def to_json(self, filename):
+        """
+        Writes the channel information to a JSON file.
+
+        Parameters
+        ----------
+            filename : str
+                The name of the file to write to.
+        """
         data = {
             'id': self.channel_id,
             'title': self.title,
