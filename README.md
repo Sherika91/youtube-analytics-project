@@ -1,3 +1,41 @@
+# YouTube Analytics Project
+
+## Object-Oriented Programming (OOP) Python Homework
+
+Welcome to the repository with homework assignments for the "OOP" course.
+By the end of the course, there will be six assignments: one assignment per lesson.
+In these assignments, you will implement classes to represent YouTube channels, playlists, and videos.
+Instances of these classes will be populated with real data obtained from the YouTube API.
+
+Each homework assignment is located in its own directory with the name _homework-N_, where _N_ is the homework number.
+
+### Project Features
+- Management of virtual environments and dependencies using venv + pip
+
+### How to Submit Homework
+
+#### Required steps:
+
+1. __Fork__ this repository. The repository will appear in your personal repositories on GitHub.
+2. Use `git clone` to clone the forked repository to your local machine.
+
+#### For each homework assignment:
+
+1. Complete the homework assignment on your computer.
+2. Use `git push`. Your homework solution will appear in your repository on GitHub.
+3. Send the link to the repository to the reviewer.
+
+#### How to Fork a Repository on GitHub
+
+1. Open the repository you want to fork.
+2. Click the "Fork" button in the upper right corner of the page.
+3. Choose your profile or organization as the place where you want to fork the repository.
+4. Wait for GitHub to complete the forking process.
+5. Now you can clone your forked repository to your computer to start working with it.
+
+Good luck with your OOP studies!
+
+
 # Проект Ютуб-аналитика
 
 ## Домашние задания по Python ООП
